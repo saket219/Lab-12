@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="us">
+<head>
+	<meta charset="utf-8">
+	<title>jQuery UI Example Page</title>
+	<link href="jquery-ui.css" rel="stylesheet">
+	<style>
+		
+  #custom-handle {
+    width: 3em;
+    height: 1.6em;
+    top: 50%;
+    margin-top: -.8em;
+    text-align: center;
+    line-height: 1.6em;
+  }
+
+  #red, #green, #blue {
+    float: left;
+    clear: left;
+    width: 300px;
+    margin: 15px;
+  }
+  #swatch {
+    width: 120px;
+    height: 100px;
+    margin-top: 18px;
+    margin-left: 350px;
+    background-image: none;
+  }
+  #red .ui-slider-range { background: #ef2929; }
+  #red .ui-slider-handle { border-color: #ef2929; }
+  #green .ui-slider-range { background: #8ae234; }
+  #green .ui-slider-handle { border-color: #8ae234; }
+  #blue .ui-slider-range { background: #729fcf; }
+  #blue .ui-slider-handle { border-color: #729fcf; }
+  
+	body{
+		font-family: "Trebuchet MS", sans-serif;
+		margin: 50px;
+		font-size: 10px;
+	}
+	.demoHeaders {
+		margin-top: 2em;
+		width: 320px;
+        padding: 5px;
+        border: 5px solid gray;
+		background-color: rgb(22, 175, 175);
+  		color: black;
+	}
+	#dialog-link {
+		padding: .4em 1em .4em 20px;
+		text-decoration: none;
+		position: relative;
+		
+	}
+	#dialog-link span.ui-icon {
+		margin: 0 5px 0 0;
+		position: absolute;
+		left: .2em;
+		top: 50%;
+		margin-top: -8px;
+		
+	}
+	div{
+		font-size: 12px;
+		
+	}
+	#skull{
+		width: 43px;
+  height: 44px;
+  background-color: white;
+	}
+
+	#dialog{
+		background-color: rgb(169, 145, 86);
+			}
+	#opener{
+		background-color: darkgoldenrod;
+	}
+	#icons {
+		margin: 0;
+		padding: 0;
+	}
+	#icons li {
+		margin: 2px;
+		position: relative;
+		padding: 4px 0;
+		cursor: pointer;
+		float: left;
+		list-style: none;
+	}
+	#icons span.ui-icon {
+		float: left;
+		margin: 0 4px;
+	}
+	.fakewindowcontain .ui-widget-overlay {
+		position: absolute;
+	}
+	select {
+		width: 200px;
+	}
+	#alien{
+		width: 150px;
+
+	}
+	
+	</style>
+</head>
+<body>
+	
+
+<h1>Welcome to jQuery UI!</h1>
+
+
+<div class="ui-widget">
+
+	<img id="alien" src="Top of the page Aliens.jpg" alt="">
+
+</div>
+
+<h1>Alien Sighting Form</h1>
+
+
+
+<!-- Autocomplete -->
+<!-- Datepicker -->
+<h2 class="demoHeaders">Sighting Date</h2>
+<div>
+	<input id="datepicker" title="type &quot;a&quot;">
+</div>
+<h2 class="demoHeaders">Creature Type:</h2>
+<form style="margin-top: 1em;" >
+	<div id="radioset">
+		<label for="radio-1">Human-like</label>
+		<input type="radio" name="radio-1" id="radio-1">
+		<label for="radio-2"> Worm-like</label>
+		<input type="radio" name="radio-1" id="radio-2">
+		<label for="radio-3">Insect-like</label>
+		<input type="radio" name="radio-1" id="radio-3">
+		<label for="radio-4">Fish-like</label>
+		<input type="radio" name="radio-1" id="radio-4">
+		<label for="radio-5">Bird-like</label>
+		<input type="radio" name="radio-1" id="radio-5">
+	</div>
+	
+</form>
+<!-- Slider -->
+<h1>Alien Details</h1>
+<h2 class="demoHeaders">Alien Weight (in lbs.)</h2>
+<div id="slider2">
+	<div id="custom-handle2" class="ui-slider-handle"></div>
+  </div>
+
+ <h2 class="demoHeaders">Alien Height (in m)</h2>
+  <div id="slider1">
+	  <div id="custom-handle1" class="ui-slider-handle"></div>
+	</div>
+
+<!-- Spinner -->
+	<h2 class="demoHeaders">Number of eyes</h2>
+	<p>
+		<input id="spinner" name="value">
+	</p>
+
+	<h2 class="demoHeaders">Number of arms</h2>
+	<p>
+		<input id="spinner1" name="value">
+	</p>
+
+	<h2 class="demoHeaders">Number of legs</h2>
+	<p>
+		<input id="spinner2" name="value">
+	</p>
+
+	<h2 class="demoHeaders">Color of Creatures</h2>
+	<class="ui-widget-content" style="border:0;">
+  
+<div id="red"></div>
+<div id="green"></div>
+<div id="blue"></div>
+ 
+<div id="swatch" class="ui-widget-content ui-corner-all"></div>
+ <br>
+
+<!-- Button -->
+
+<div id="dialog" title="Thank You!">
+	<p>Your Sighting has been submitted. <br> Keep your eyes to the skies!<br> 
+		<img id ="skull" src="Alian pic for submit.jpg" alt="">
+		<div id = "results"></div>
+	</p>
+	
+  </div>
+  <br>
+  <button id="opener">Submit</button>
+
+<script src="external/jquery/jquery.js"></script>
+<script src="jquery-ui.js"></script>
+<script>
+
+
+$( "#button" ).button();
+$( "#button-icon" ).button({
+	icon: "ui-icon-gear",
+	showLabel: false
+});
+
+$( "#radioset" ).buttonset();
+
+$( "#controlgroup" ).controlgroup();
+
+$( "#tabs" ).tabs();
+
+$( "#dialog" ).dialog({
+	autoOpen: false,
+	width: 400,
+	buttons: [
+		{
+			text: "Ok",
+			click: function() {
+				$( this ).dialog( "close" );
+			}
+		},
+		{
+			text: "Cancel",
+			click: function() {
+				$( this ).dialog( "close" );
+			}
+		}
+	]
+});
+
+// Link to open the dialog
+$( "#dialog-link" ).click(function( event ) {
+	$( "#dialog" ).dialog( "open" );
+	event.preventDefault();
+});
+
+$( "#datepicker" ).datepicker({
+	inline: true
+});
+
+$( "#slider" ).slider({
+	range: true,
+	values: [ 17, 67 ]
+});
+
+
+
+$( "#spinner" ).spinner();
+
+
+// Hover states on the static widgets
+$( "#dialog-link, #icons li" ).hover(
+	function() {
+		$( this ).addClass( "ui-state-hover" );
+	},
+	function() {
+		$( this ).removeClass( "ui-state-hover" );
+	}
+);
+</script>
+</body>
+</html>
